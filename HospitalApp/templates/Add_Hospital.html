@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends 'Index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="text-align:center;">
+ <h1><i>ADD HOSPITALS</i></h1>
+
+</div>
+<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Add Hospital Details</h4>
+                    <p class="card-description"> Add here..! </p>
+                    <form class="forms-sample" method="post" action="{% url 'savehospital' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                      <div class="form-group">
+                        <label for="exampleInputName1">Hospital_Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Hospital_Name" name="name">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">District</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="District" name="district">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Location</label>
+                        <input type="textarea" class="form-control" id="exampleInputPassword4" placeholder="Location" name="location">
+                      </div>
+                       <div class="form-group">
+                        <label for="exampleInputPassword4">Contact Number</label>
+                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Contact Number" name="contact">
+                      </div>
+                      <div class="form-group">
+                        <label>Hospital Image</label>
+                        <input type="file" name="image">
+
+                      </div>
+
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-dark">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+
+
+</body>
+</html>
+{% endblock %}

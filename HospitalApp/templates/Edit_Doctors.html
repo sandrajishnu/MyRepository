@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends 'Index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div style="text-align:center;">
+ <h1><i>EDIT DOCTORS</i></h1>
+
+</div>
+<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Edit Doctors Details</h4>
+                    <p class="card-description"> Edit here..! </p>
+                    <form class="forms-sample" method="post" action="{% url 'updatedoctors' dataid=doctors.id %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                         <div class="form-group">
+               <label>Select Category</label>
+               <select class="form-control" name="select">
+                   <option>Select Hospital</option>
+                   {% for d in data %}
+                   <option>{{d.Hospital_Name}}</option>
+                   {% endfor %}
+               </select>
+           </div>
+                      <div class="form-group">
+                        <label for="exampleInputName1">Doctor_Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Doctor_Name" name="name" value="{{doctors.Doctor_Name}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Department</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Department" name="department" value="{{doctors.Department}}">
+                      </div>
+
+                       <div class="form-group">
+                        <label for="exampleInputPassword4">Contact Number</label>
+                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Contact Number" name="contact" value="{{doctors.Contact_Number}}">
+                      </div>
+                      <div class="form-group">
+                        <label>Doctor Image</label>
+                        <input type="file" name="image">
+                        <img src="{{doctorss.Image.url}}" width="100px" height="100px">
+
+                      </div>
+
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-dark">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+
+</body>
+</html>
+{% endblock %}
